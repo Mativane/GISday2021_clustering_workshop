@@ -10,8 +10,6 @@ More advanced examples focuses on heuristic aspects of clustering, showing the i
 - stopping criteria and temporaty growth blocking criteria
 
 
-**The repository is currently in development.**
-
 
 _____
 Data used as examples comes from https://mapplab.pl 
