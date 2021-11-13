@@ -17,6 +17,8 @@ data = gpd.read_file("example-data\\unesco_asia.gpkg", driver="GPKG")
 
 distance_matrix = data.geometry.apply(lambda x: data.distance(x).astype(np.int64))
 seeds = data.loc[np.argsort(distance_matrix.loc[:,0:9].sum())[0:4], 'geometry']
+#seeds_geoms = [Point(np.quantile(data.geometry.x, q), np.quantile(data.geometry.y, q)) for q in [0.2, 0.4, 0.6, 0.8]]
+#seeds = gpd.GeoDataFrame(geometry = seeds_geoms).geometry
 
 i = 0
 data = k_means(data, seeds)
