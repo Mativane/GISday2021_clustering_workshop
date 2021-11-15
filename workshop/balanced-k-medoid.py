@@ -6,7 +6,7 @@ def k_medoid(data, distance_matrix, seeds):
     distance_matrix_to_seeds = np.array(distance_matrix[seeds])
     
     max_difference_allowed = 30
-    current_cluster_sizes = np.asarray([0,0,0,0])
+    current_cluster_sizes = np.asarray([0] * seeds.size)
 
     choosen_seeds = [None] * distance_matrix.shape[0]
 
@@ -64,7 +64,7 @@ while(True):
         break
     else:
         seed_combinations_so_far.append(set(new_seeds))
-        seeds = new_seeds
+        seeds = np.asarray(new_seeds)
         data = k_medoid(data, distance_matrix, seeds)
 
         i+=1
